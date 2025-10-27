@@ -80,6 +80,9 @@ public class TollCalculator
     {
         if (date.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday) return true;
 
+        // July is toll-free
+        if (date.Month == 7) return true;
+
         var nextDay = date.AddDays(1);
         return IsHolidayDate(date) || IsHolidayDate(nextDay);
     }
