@@ -40,12 +40,6 @@ public class TollCalculator
         return totalFee;
     }
 
-    private bool IsTollFreeVehicle(IVehicle vehicle)
-    {
-        if (vehicle == null) return false;
-        return TollFreeVehicles.Contains(vehicle.VehicleType);
-    }
-
     private int GetTollFee(DateTime date, IVehicle vehicle)
     {
         if (IsTollFreeDate(date) || IsTollFreeVehicle(vehicle)) return 0;
@@ -103,8 +97,13 @@ public class TollCalculator
         }
         return false;
     }
+    
+    private bool IsTollFreeVehicle(IVehicle vehicle)
+    {
+        return _tollFreeVehicles.Contains(vehicle.VehicleType);
+    }
 
-    private List<VehicleType> TollFreeVehicles =
+    private readonly List<VehicleType> _tollFreeVehicles =
     [
         VehicleType.Motorbike,
         VehicleType.Tractor,
