@@ -5,7 +5,7 @@ namespace JPTollCalc.Business;
 
 public class TollCalculator
 {
-
+    // TODO: In a real world app I would want most of the 'constants' in here to be configurable from an Admin dashboard / UI or similar
     private const int MaximumFee = 60;
     
     /**
