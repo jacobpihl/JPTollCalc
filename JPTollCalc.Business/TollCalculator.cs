@@ -20,20 +20,18 @@ public class TollCalculator
         foreach (var date in dates)
         {
             var nextFee = GetTollFee(date, vehicle);
-            
             var diffInMinutes = date.Subtract(intervalStart).TotalMinutes;
-            if (diffInMinutes <= 60)
-            {
-                var tempFee = GetTollFee(intervalStart, vehicle);
-                
-                if (totalFee > 0) totalFee -= tempFee;
-                if (nextFee >= tempFee) tempFee = nextFee;
-                totalFee += tempFee;
-            }
-            else
+            if (diffInMinutes > 60)
             {
                 totalFee += nextFee;
+                continue;
             }
+            
+            var tempFee = GetTollFee(intervalStart, vehicle);
+                
+            if (totalFee > 0) totalFee -= tempFee;
+            if (nextFee >= tempFee) tempFee = nextFee;
+            totalFee += tempFee;
         }
         if (totalFee > 60) totalFee = 60;
         return totalFee;
