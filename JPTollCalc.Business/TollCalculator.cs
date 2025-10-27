@@ -5,6 +5,8 @@ namespace JPTollCalc.Business;
 public class TollCalculator
 {
 
+    private const int MaximumFee = 60;
+    
     /**
      * Calculate the total toll fee for one day
      *
@@ -12,7 +14,6 @@ public class TollCalculator
      * @param dates   - date and time of all passes on one day
      * @return - the total toll fee for that day
      */
-
     public int GetTollFee(IVehicle vehicle, DateTime[] dates)
     {
         var intervalStart = dates[0];
@@ -33,8 +34,10 @@ public class TollCalculator
             if (nextFee >= tempFee) tempFee = nextFee;
             totalFee += tempFee;
         }
-        if (totalFee > 60) totalFee = 60;
-        return totalFee;
+        
+        return totalFee > MaximumFee
+            ? MaximumFee
+            : totalFee;
     }
 
     private int GetTollFee(DateTime date, IVehicle vehicle)
