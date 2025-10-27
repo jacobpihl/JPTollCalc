@@ -79,7 +79,8 @@ public class TollCalculator
     {
         if (date.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday) return true;
 
-        return IsHolidayDate(date);
+        var nextDay = date.AddDays(1);
+        return IsHolidayDate(date) || IsHolidayDate(nextDay);
     }
 
     private static bool IsHolidayDate(DateTime date)
