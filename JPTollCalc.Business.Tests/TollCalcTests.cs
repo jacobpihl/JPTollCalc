@@ -63,6 +63,12 @@ public class TollCalcTests
     {
         Assert.That(WeekdayMultiPass16Sek(_car).Equals(16), "Weekday multi pass 16 sek");
     }
+    
+    [Test]
+    public void CarWeekdayMultiPas31Sek()
+    {
+        Assert.That(WeekdayMultiPass31Sek(_car).Equals(31), "Weekday multi pass 31 sek");
+    }
 
     [Test]
     public void MotorbikeWeekdaySinglePass8Sek()
@@ -116,6 +122,12 @@ public class TollCalcTests
     public void MotorbikeWeekdayMultiPass16Sek()
     {
         Assert.That(WeekdayMultiPass16Sek(_motorbike).Equals(0), "Motorbikes should be toll free!");
+    }
+    
+    [Test]
+    public void MotorbikeWeekdayMultiPas31Sek()
+    {
+        Assert.That(WeekdayMultiPass31Sek(_motorbike).Equals(0), "Motorbikes should be toll free!");
     }
 
     private int WeekdaySinglePass8Sek(IVehicle vehicle)
@@ -172,6 +184,13 @@ public class TollCalcTests
     {
         var firstPass = new DateTime(2025, 10, 27, 6, 15, 0);
         var secondPass = new DateTime(2025, 10, 27, 10, 10, 0);
+        return _tollCalc.GetTollFee(vehicle, [firstPass, secondPass]);
+    }
+
+    private int WeekdayMultiPass31Sek(IVehicle vehicle)
+    {
+        var firstPass = new DateTime(2025, 10, 27, 7, 15, 0);
+        var secondPass = new DateTime(2025, 10, 27, 17, 10, 0);
         return _tollCalc.GetTollFee(vehicle, [firstPass, secondPass]);
     }
 }
