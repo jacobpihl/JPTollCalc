@@ -1,6 +1,6 @@
 namespace JPTollCalc.Contracts;
 
-public interface Vehicle
+public interface IVehicle
 {
     String GetVehicleType();
 }

@@ -1,6 +1,6 @@
 ﻿namespace JPTollCalc.Contracts;
 
-public class Car : Vehicle
+public class Car : IVehicle
 {
     public String GetVehicleType()
     {
