@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPTollCalc.Console", "JPTollCalc.Console\JPTollCalc.Console.csproj", "{20334F84-100B-4BBB-87F8-E9EB2308259D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPTollCalc.Contracts", "JPTollCalc.Contracts\JPTollCalc.Contracts.csproj", "{9C2910BD-A05D-45C4-8991-2994AE0D755D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPTollCalc.Business", "JPTollCalc.Business\JPTollCalc.Business.csproj", "{08008ED5-478D-4ED8-8C81-DAB79E8AABC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20334F84-100B-4BBB-87F8-E9EB2308259D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20334F84-100B-4BBB-87F8-E9EB2308259D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20334F84-100B-4BBB-87F8-E9EB2308259D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20334F84-100B-4BBB-87F8-E9EB2308259D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C2910BD-A05D-45C4-8991-2994AE0D755D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C2910BD-A05D-45C4-8991-2994AE0D755D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C2910BD-A05D-45C4-8991-2994AE0D755D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C2910BD-A05D-45C4-8991-2994AE0D755D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08008ED5-478D-4ED8-8C81-DAB79E8AABC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08008ED5-478D-4ED8-8C81-DAB79E8AABC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08008ED5-478D-4ED8-8C81-DAB79E8AABC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08008ED5-478D-4ED8-8C81-DAB79E8AABC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
