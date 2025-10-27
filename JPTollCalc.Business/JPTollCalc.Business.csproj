@@ -10,4 +10,8 @@
       <ProjectReference Include="..\JPTollCalc.Contracts\JPTollCalc.Contracts.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="PublicHoliday" Version="3.9.0" />
+    </ItemGroup>
+
 </Project>
