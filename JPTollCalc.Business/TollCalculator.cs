@@ -75,14 +75,14 @@ public class TollCalculator
         }
     }
 
-    private Boolean IsTollFreeDate(DateTime date)
+    private static bool IsTollFreeDate(DateTime date)
     {
+        if (date.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday) return true;
+
         var year = date.Year;
         var month = date.Month;
         var day = date.Day;
-
-        if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday) return true;
-
+        
         if (year == 2013)
         {
             if (month == 1 && day == 1 ||
@@ -97,6 +97,7 @@ public class TollCalculator
                 return true;
             }
         }
+        
         return false;
     }
     
