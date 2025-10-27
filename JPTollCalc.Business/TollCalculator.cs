@@ -16,9 +16,10 @@ public class TollCalculator
      */
     public int GetTollFee(IVehicle vehicle, DateTime[] dates)
     {
-        var intervalStart = dates[0];
+        var orderedDates = dates.OrderBy(d => d).ToList();
+        var intervalStart = orderedDates[0];
         var totalFee = 0;
-        foreach (var date in dates)
+        foreach (var date in orderedDates)
         {
             var nextFee = GetTollFee(date, vehicle);
             var diffInMinutes = date.Subtract(intervalStart).TotalMinutes;
