@@ -57,7 +57,8 @@ public class TollCalculator
                 return 18;
             case 8 when minute is >= 0 and <= 29:
                 return 13;
-            case >= 8 and <= 14 when minute is >= 30 and <= 59:
+            case 8 when minute is >= 30 and <= 59:
+            case >= 8 and <= 14:
                 return 8;
             case 15 when minute is >= 0 and <= 29:
                 return 13;
