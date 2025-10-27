@@ -50,19 +50,33 @@ public class TollCalculator
     {
         if (IsTollFreeDate(date) || IsTollFreeVehicle(vehicle)) return 0;
 
-        int hour = date.Hour;
-        int minute = date.Minute;
+        var hour = date.Hour;
+        var minute = date.Minute;
 
-        if (hour == 6 && minute >= 0 && minute <= 29) return 8;
-        else if (hour == 6 && minute >= 30 && minute <= 59) return 13;
-        else if (hour == 7 && minute >= 0 && minute <= 59) return 18;
-        else if (hour == 8 && minute >= 0 && minute <= 29) return 13;
-        else if (hour >= 8 && hour <= 14 && minute >= 30 && minute <= 59) return 8;
-        else if (hour == 15 && minute >= 0 && minute <= 29) return 13;
-        else if ((hour == 15 && minute >= 30) || (hour == 16 && minute >= 0 && minute <= 59)) return 18;
-        else if (hour == 17 && minute >= 0 && minute <= 59) return 13;
-        else if (hour == 18 && minute >= 0 && minute <= 29) return 8;
-        else return 0;
+        switch (hour)
+        {
+            case 6 when minute is >= 0 and <= 29:
+                return 8;
+            case 6 when minute is >= 30 and <= 59:
+                return 13;
+            case 7 when minute is >= 0 and <= 59:
+                return 18;
+            case 8 when minute is >= 0 and <= 29:
+                return 13;
+            case >= 8 and <= 14 when minute is >= 30 and <= 59:
+                return 8;
+            case 15 when minute is >= 0 and <= 29:
+                return 13;
+            case 15 when minute >= 30:
+            case 16 when minute is >= 0 and <= 59:
+                return 18;
+            case 17 when minute is >= 0 and <= 59:
+                return 13;
+            case 18 when minute is >= 0 and <= 29:
+                return 8;
+            default:
+                return 0;
+        }
     }
 
     private Boolean IsTollFreeDate(DateTime date)
