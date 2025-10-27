@@ -15,15 +15,15 @@ public class TollCalculator
 
     public int GetTollFee(IVehicle vehicle, DateTime[] dates)
     {
-        DateTime intervalStart = dates[0];
-        int totalFee = 0;
-        foreach (DateTime date in dates)
+        var intervalStart = dates[0];
+        var totalFee = 0;
+        foreach (var date in dates)
         {
-            int nextFee = GetTollFee(date, vehicle);
-            int tempFee = GetTollFee(intervalStart, vehicle);
-
+            var nextFee = GetTollFee(date, vehicle);
+            var tempFee = GetTollFee(intervalStart, vehicle);
+            
             long diffInMillies = date.Millisecond - intervalStart.Millisecond;
-            long minutes = diffInMillies/1000/60;
+            var minutes = diffInMillies/1000/60;
 
             if (minutes <= 60)
             {
@@ -81,9 +81,9 @@ public class TollCalculator
 
     private Boolean IsTollFreeDate(DateTime date)
     {
-        int year = date.Year;
-        int month = date.Month;
-        int day = date.Day;
+        var year = date.Year;
+        var month = date.Month;
+        var day = date.Day;
 
         if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday) return true;
 
