@@ -1,15 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
+      <PackageReference Include="NUnit" Version="4.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\JPTollCalc.Business\JPTollCalc.Business.csproj" />
-      <ProjectReference Include="..\JPTollCalc.Contracts\JPTollCalc.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
