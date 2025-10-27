@@ -2,8 +2,5 @@
 
 public class Car : IVehicle
 {
-    public String GetVehicleType()
-    {
-        return "Car";
-    }
+    public VehicleType VehicleType => VehicleType.Car;
 }
