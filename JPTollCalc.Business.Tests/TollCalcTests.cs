@@ -65,7 +65,7 @@ public class TollCalcTests
     }
     
     [Test]
-    public void CarWeekdayMultiPasUnordered16Sek()
+    public void CarWeekdayMultiPassUnordered16Sek()
     {
         Assert.That(WeekdayMultiPassUnordered16Sek(_car).Equals(16), "Weekday multi pass 16 sek");
     }
@@ -77,7 +77,7 @@ public class TollCalcTests
     }
     
     [Test]
-    public void CarWeekdayMultiPas31Sek()
+    public void CarWeekdayMultiPass31Sek()
     {
         Assert.That(WeekdayMultiPass31Sek(_car).Equals(31), "Weekday multi pass 31 sek");
     }
@@ -137,7 +137,7 @@ public class TollCalcTests
     }
     
     [Test]
-    public void MotorbikeWeekdayMultiPasUnordered16Sek()
+    public void MotorbikeWeekdayMultiPassUnordered16Sek()
     {
         Assert.That(WeekdayMultiPassUnordered16Sek(_car).Equals(16), "Motorbikes should be toll free!");
     }
