@@ -27,6 +27,7 @@ public class TollCalculator
             if (diffInMinutes > 60)
             {
                 totalFee += nextFee;
+                intervalStart = date;
                 continue;
             }
             

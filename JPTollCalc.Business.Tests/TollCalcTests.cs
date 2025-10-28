@@ -65,6 +65,18 @@ public class TollCalcTests
     }
     
     [Test]
+    public void CarWeekdayMultiPasUnordered16Sek()
+    {
+        Assert.That(WeekdayMultiPassUnordered16Sek(_car).Equals(16), "Weekday multi pass 16 sek");
+    }
+    
+    [Test]
+    public void CarWeekdayDisjointedMultiPass26Sek()
+    {
+        Assert.That(WeekdayDisjointedMultiPass26Sek(_car).Equals(26), "Weekday disjointed multi pass 26 sek");
+    }
+    
+    [Test]
     public void CarWeekdayMultiPas31Sek()
     {
         Assert.That(WeekdayMultiPass31Sek(_car).Equals(31), "Weekday multi pass 31 sek");
@@ -125,9 +137,21 @@ public class TollCalcTests
     }
     
     [Test]
-    public void MotorbikeWeekdayMultiPas31Sek()
+    public void MotorbikeWeekdayMultiPasUnordered16Sek()
+    {
+        Assert.That(WeekdayMultiPassUnordered16Sek(_car).Equals(16), "Motorbikes should be toll free!");
+    }
+    
+    [Test]
+    public void MotorbikeWeekdayMultiPass31Sek()
     {
         Assert.That(WeekdayMultiPass31Sek(_motorbike).Equals(0), "Motorbikes should be toll free!");
+    }
+    
+    [Test]
+    public void MotorbikeWeekdayDisjointedMultiPass26Sek()
+    {
+        Assert.That(WeekdayDisjointedMultiPass26Sek(_motorbike).Equals(0), "Motorbikes should be toll free!");
     }
 
     private int WeekdaySinglePass8Sek(IVehicle vehicle)
@@ -186,11 +210,29 @@ public class TollCalcTests
         var secondPass = new DateTime(2025, 10, 27, 10, 10, 0);
         return _tollCalc.GetTollFee(vehicle, [firstPass, secondPass]);
     }
+    
+    private int WeekdayMultiPassUnordered16Sek(IVehicle vehicle)
+    {
+        var firstPass = new DateTime(2025, 10, 27, 6, 15, 0);
+        var secondPass = new DateTime(2025, 10, 27, 10, 10, 0);
+        return _tollCalc.GetTollFee(vehicle, [secondPass, firstPass]);
+    }
 
     private int WeekdayMultiPass31Sek(IVehicle vehicle)
     {
         var firstPass = new DateTime(2025, 10, 27, 7, 15, 0);
         var secondPass = new DateTime(2025, 10, 27, 17, 10, 0);
         return _tollCalc.GetTollFee(vehicle, [firstPass, secondPass]);
+    }
+    
+    private int WeekdayDisjointedMultiPass26Sek(IVehicle vehicle)
+    {
+        var firstPassFirstTime = new DateTime(2025, 10, 27, 6, 15, 0);
+        var firstPassSecondTime = new DateTime(2025, 10, 27, 6, 45, 0);
+        
+        var secondPassFirstTime = new DateTime(2025, 10, 27, 17, 15, 0);
+        var secondPassSecondTime = new DateTime(2025, 10, 27, 18, 5, 0);
+        
+        return _tollCalc.GetTollFee(vehicle, [firstPassFirstTime, firstPassSecondTime, secondPassFirstTime, secondPassSecondTime]);
     }
 }
